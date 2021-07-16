@@ -87,11 +87,51 @@ Trata-se de uma aplicação de prova de conceito para aplicar Observability util
   ![Grafana-login](images/grafana-login.PNG "Grafana-login")
   
   - Tela Inicial
-  - 
+  
   ![Grafana-inicio](images/grafana-inicio.PNG "Grafana-inicio")
   
-  - Criação dos Data Source Jager
+  - Criação dos Data Source Jaeger
     - 1° Clique em Add data source
     - 2° Selecione a opção de Jaeger
     
     ![Grafana-jaeger-datasource](images/grafana-jaeger-datasource.PNG "Grafana-jaeger-datasource")
+    
+    - 3° Configuração é bem simples so incluir o http://jaeger:16686 no input da URL e clicar em
+      Save & Test:
+      
+    ![Grafana-jaeger-datasource-settings](images/grafana-jaeger-datasource-settings.PNG "Grafana-jaeger-datasource-settings")
+  - Vizualizar os traces Jaeger
+    - 1° Na página inicial do Grafana clique em Explore e selecione Jaeger
+    - 2° Clique em Traces nome do microserviço e selecione a operação desejada e ele retorna o trance.
+
+    ![Grafana-jaeger-operacao](images/grafana-jaeger-operacao.PNG "Grafana-jaeger-operacao")
+    
+    ![Grafana-jaeger-grafico](images/grafana-jaeger-grafico.PNG "Grafana-jaeger-grafico")
+
+  - Criação dos Data Source Prometheus
+    - 1° Clique em Add data source
+    - 2° Selecione a opção de Prometheus
+    
+    ![Grafana-prometheus-datasource](images/grafana-prometheus-datasource.PNG "Grafana-prometheus-datasource")
+  
+    - 3° Configuração é bem simples so incluir o http://prometheus:9090 no input da URL e clicar em 
+      Save & Test:
+
+    ![Grafana-prometheus-datasource-settings](images/grafana-prometheus-datasource-settings.PNG "Grafana-prometheus-datasource-settings")
+  
+  - Criando um Dashboard Prometheus
+   - 1° Na página inicial do Grafana clique em create your first dashboard
+   - 2° Clique em Add an empty panel
+   - 3° Na opção query options selecione Prometheus
+   - 4° No Painel Visualization selecione o Gauge
+   - 5° Em Metrics no painel Query estão disponíveis os endpoints fornecidos pelo Prometheus:
+   - 6° Na opção metrics no painel query estão os recursos disponibilizados pelo prometheus:
+   - 7° Podemos utilizar varios filtros e varios tipos de lengendas para cada grafico:
+     - http_server_requests_seconds_count{job="ms-person", uri="/persons", method="GET", status="200"}
+     - {{uri}}/{{method}} | HTTPCODE: {{status}}
+     - http_server_requests_seconds_count{job="ms-person", uri="/persons", method="GET", status="200"}
+     - {{uri}}/{{method}} | HTTPCODE: {{status}}
+     - http_server_requests_seconds_count{job="ms-person", uri="/persons", method="GET", status="200"}
+     - {{uri}}/{{method}} | HTTPCODE: {{status}}  |  Exception: {{exception}}
+
+    ![Grafana-prometheus-datasource-settings](images/grafana-prometheus-dashboard.PNG "Grafana-prometheus-datasource-settings") 
