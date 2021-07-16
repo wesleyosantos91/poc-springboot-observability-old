@@ -64,25 +64,34 @@ Trata-se de uma aplicação de prova de conceito para aplicar Observability util
 - ### Jaeger
         http://localhost:16686/
   - Na opção service podemos selecionar a o microserviço e clicar no find trances e será retornado os traces da aplicação.
-    ![Jaeger](images/jaeger.png "Jaeger")
+
+    ![Jaeger](images/jaeger.PNG "Jaeger")
 - ### Prometheus
         http://localhost:9090/
   - O Prometeus disponibiliza a funções, onde por exemplo a *http_server_requests_seconds_count* que disponibiliza a quantidade de request em um determinado recurso do microserviço, além de demonstrar em formato de tabela e gráfico.
-    ![Prometeus-tabela](images/prometeus-tabela.png "Prometeus-tabela")
-    ![Prometeus-grafico](images/prometeus-grafico.png "Prometeus-grafico")
+  
+    ![Prometeus-tabela](images/prometeus-tabela.PNG "Prometeus-tabela")
+    
+    ![Prometeus-grafico](images/prometeus-grafico.PNG "Prometeus-grafico")
     
   - O Prometeus também disponibiliza a funcão de verificar a status do microserviço a partir do menu superior status.
-    ![Prometeus-status](images/prometeus-status.png "Prometeus-status")
+  
+    ![Prometeus-status](images/prometeus-status.PNG "Prometeus-status")
     
 - ### Grafana
         http://localhost:3000/login
         Email or username: admin
         Password: admin
   - Tela de Login
-  ![Grafana-login](images/grafana-login.png "Grafana-login")
-  - Tela inicial
-  ![Grafana-inicio](images/grafana-inicio.png "Grafana-inicio")
+  
+  ![Grafana-login](images/grafana-login.PNG "Grafana-login")
+  
+  - Tela Inicial
+  - 
+  ![Grafana-inicio](images/grafana-inicio.PNG "Grafana-inicio")
+  
   - Criação dos Data Source Jager
     - 1° Clique em Add data source
     - 2° Selecione a opção de Jaeger
+    
     ![Grafana-jaeger-datasource](images/grafana-jaeger-datasource.PNG "Grafana-jaeger-datasource")
