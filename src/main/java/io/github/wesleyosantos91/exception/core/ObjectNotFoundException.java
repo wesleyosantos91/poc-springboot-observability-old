@@ -1,4 +1,4 @@
-package io.github.wesleyosantos91.core;
+package io.github.wesleyosantos91.exception.core;
 
 public class ObjectNotFoundException extends RuntimeException {
 

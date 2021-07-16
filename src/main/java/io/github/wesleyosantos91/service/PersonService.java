@@ -1,6 +1,6 @@
 package io.github.wesleyosantos91.service;
 
-import io.github.wesleyosantos91.core.ObjectNotFoundException;
+import io.github.wesleyosantos91.exception.core.ObjectNotFoundException;
 import io.github.wesleyosantos91.domain.entity.Person;
 import io.github.wesleyosantos91.domain.request.PersonRequest;
 import io.github.wesleyosantos91.domain.response.PersonResponse;
