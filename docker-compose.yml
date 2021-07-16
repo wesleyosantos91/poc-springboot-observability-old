@@ -2,17 +2,16 @@ version: '3.7'
 services:
   postgres:
     image: postgres:10
-    container_name: "postgres"
+    container_name: postgres
     environment:
-      - POSTGRES_DB=postgres
+      - POSTGRES_DB=dev
       - POSTGRES_USER=postgres
+      - POSTGRES_PASSWORD=postgres
       - TZ=GMT
-    volumes:
-      - "./data/postgres:/var/lib/postgresql/data"
     ports:
       - 5432:5432
   jaeger:
-    container_name: "jaeger"
+    container_name: jaeger
     image: jaegertracing/all-in-one:latest
     ports:
       - 5775:5775/udp
@@ -23,3 +22,18 @@ services:
       - 14268:14268
       - 14250:14250
       - 9411:9411
+  prometheus:
+    image: prom/prometheus:v2.26.0
+    container_name: prometheus
+    ports:
+      - 9090:9090
+    volumes:
+      - ./prometheus.yml:/etc/prometheus/prometheus.yml
+    command: --config.file=/etc/prometheus/prometheus.yml
+  grafana:
+    image: grafana/grafana:7.5.5-ubuntu
+    container_name: grafana
+    ports:
+      - 3000:3000
+    depends_on:
+      - prometheus
